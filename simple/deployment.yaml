@@ -9,11 +9,12 @@ metadata:
   namespace: argo-rollout-simple
 spec:
   progressDeadlineSeconds: 600
-  replicas: 1
+  replicas: 30
   revisionHistoryLimit: 10
   selector:
     matchLabels:
       deployment: test
+      app: test
   strategy:
     rollingUpdate:
       maxSurge: 25%

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: test
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: test
+
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test
+
+  strategy:
+    blueGreen: 
+      activeService: test
+      previewService: test-preview
+      autoPromotionEnabled: false
