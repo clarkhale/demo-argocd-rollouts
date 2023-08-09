@@ -2,10 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: test
-    app.kubernetes.io/component: test
-    app.kubernetes.io/instance: test
-  name: test
+    app: bluegreen
+    app.kubernetes.io/component: bluegreen
+    app.kubernetes.io/instance: bluegreen
+  name: bluegreen
   namespace: argo-rollout-simple
 spec:
   internalTrafficPolicy: Cluster
@@ -22,6 +22,6 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    deployment: test
+    deployment: bluegreen
   sessionAffinity: None
   type: ClusterIP
