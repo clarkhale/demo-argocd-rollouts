@@ -1,7 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: RolloutManager
 metadata:
-name: argo-rollout
+  name: argo-rollout
+  namespace: argo-rollout-simple
 labels:
     example: basic
 spec: {}
