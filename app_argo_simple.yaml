@@ -16,6 +16,5 @@ spec:
     repoURL: gitea@code.private.opequon.net:opequon_appdev/argo_rollouts_demo.git
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
     syncOptions:
     - CreateNamespace=true
