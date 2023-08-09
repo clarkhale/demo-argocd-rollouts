@@ -8,12 +8,17 @@ spec:
   selector:
     matchLabels:
       app: bluegreen
-
-  workloadRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: bluegreen
-
+  template:
+    metadata:
+      labels:
+        app: bluegreen
+    spec:
+      containers:
+      - name: bluegreen
+        image: argoproj/rollouts-demo:blue
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
   strategy:
     blueGreen: 
       activeService: bluegreen

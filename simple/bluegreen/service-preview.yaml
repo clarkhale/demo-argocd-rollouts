@@ -22,6 +22,6 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    deployment: bluegreen
+    app: bluegreen
   sessionAffinity: None
   type: ClusterIP
