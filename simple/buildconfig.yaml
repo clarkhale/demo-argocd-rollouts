@@ -1,0 +1,41 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: test
+    app.kubernetes.io/component: test
+    app.kubernetes.io/instance: test
+  name: test
+  namespace: argo-rollout-simple
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: test:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://code.private.opequon.net/opequon_appdev/test.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: httpd:2.4-ubi8
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: z7saB5TNjzFLLb31pB_n
+    type: GitHub
+  - generic:
+      secret: SUsAIgyey2pGdQMxguB_
+    type: Generic
+  - type: ConfigChange
+  - imageChange: {}
+    type: ImageChange

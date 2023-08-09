@@ -1,0 +1,12 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    app: test
+    app.kubernetes.io/component: test
+    app.kubernetes.io/instance: test
+  name: test
+  namespace: argo-rollout-simple
+spec:
+  lookupPolicy:
+    local: false
