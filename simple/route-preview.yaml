@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: test
+    app.kubernetes.io/component: test
+    app.kubernetes.io/instance: argo-rollout-simple
+  name: test-preview
+  namespace: argo-rollout-simple
+spec:
+  host: test-preview-argo-rollout-simple.apps.ocp4.private.opequon.net
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: test-preview
+    weight: 100
+  wildcardPolicy: None
